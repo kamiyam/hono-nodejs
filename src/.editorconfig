@@ -1,0 +1,30 @@
+root = true
+
+[*]
+indent_style = space
+indent_size = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+end_of_line = lf
+charset = utf-8
+
+[*.{md,mdown,markdown}]
+indent_style = tab
+trim_trailing_whitespace = false
+
+# Minified JavaScript files shouldn't be changed
+[**.min.{css,js}]
+indent_style = unset
+insert_final_newline = unset
+
+# The JSON files contain newlines inconsistently
+[*.json]
+insert_final_newline = unset
+
+[{node_modules,public/js}/**]
+charset = unset
+end_of_line = unset
+insert_final_newline = unset
+trim_trailing_whitespace = unset
+indent_style = unset
+indent_size = unset
