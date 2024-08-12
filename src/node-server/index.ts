@@ -1,4 +1,4 @@
-import app from "@/app";
+import { createApp } from "@/apps/createApp";
 import { serve } from "@hono/node-server";
 
 type Env = {
@@ -6,10 +6,14 @@ type Env = {
 };
 
 export default async (env: Env): Promise<void> => {
+  const { injectWebSocket, appRouter } = await createApp();
+
   const { PORT: port } = env;
   console.info(`Server is running on port ${port}`);
-  serve({
-    fetch: app.fetch,
+
+  const server = serve({
+    fetch: appRouter.fetch,
     port,
   });
+  injectWebSocket(server);
 };
