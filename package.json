@@ -2,7 +2,7 @@
   "name": "hono-nodejs",
   "scripts": {
     "dev": "tsx watch ./src/index.ts",
-    "build": "swc src --strip-leading-paths -d dist",
+    "build": "swc ./src --strip-leading-paths -d dist",
     "typecheck": "tsc --noEmit",
     "check": "biome check --apply ./src"
   },
